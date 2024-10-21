@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'screens/stack.dart';
-
-
 
 void main() => runApp(const MyApp());
 
@@ -10,11 +7,47 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'My flutter App',
       themeMode: ThemeMode.system,
       debugShowCheckedModeBanner: false,
-      home: Stacking()
+      home: Scaffold(
+          appBar: AppBar(
+            title: Text("Welcome Home"),
+            backgroundColor: Colors.blue,
+            elevation: 20.0,
+            centerTitle: true,
+          ),
+          drawer: Drawer(
+            backgroundColor: Colors.grey,
+          ),
+          body: MyStatefulWidget()),
     );
+  }
+}
+
+class MyStatefulWidget extends StatefulWidget {
+  const MyStatefulWidget({super.key});
+
+  @override
+  State<MyStatefulWidget> createState() => _MyStatelessWidgetState();
+}
+
+class _MyStatelessWidgetState extends State<MyStatefulWidget> {
+  bool liked = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(children: [
+      ListTile(
+        trailing: IconButton(
+          onPressed: () {
+          setState(() => liked = !liked);
+          }, 
+          icon: liked? (Icon(Icons.favorite)) : (Icon(Icons.favorite_outline))),
+        title: Text("Mouse Click"),
+        onTap: () {},
+      )
+    ]);
   }
 }
