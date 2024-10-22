@@ -1,4 +1,4 @@
-import 'package:first_app/screens/text_field_forms.dart';
+import 'package:first_app/screens/test.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       title: 'My flutter App',
       themeMode: ThemeMode.system,
       debugShowCheckedModeBanner: false,
-      home: MyTextForms()
+      home: MyTest()
         
     );
   }
